@@ -31,7 +31,7 @@ class HighPointViewModel @Inject constructor(
             try {
                 val highPoint = dataRepository.getHighPoint(state).body()
                 if (highPoint == null) {
-                    _uiState.value = HighPointScreenState.Error(java.lang.Exception("Whoops something went wrong"))
+                    _uiState.value = HighPointScreenState.Error(Exception("Whoops something went wrong"))
                 } else {
                     _uiState.value = HighPointScreenState.Success
                     _highpoint.value = highPoint
@@ -49,5 +49,5 @@ sealed class HighPointScreenState {
     data object Loading : HighPointScreenState()
     data object Success: HighPointScreenState()
 
-    class Error(val error: java.lang.Exception) : HighPointScreenState()
+    class Error(val error: Exception) : HighPointScreenState()
 }
