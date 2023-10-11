@@ -11,10 +11,6 @@ import will.denne.launches.data.DataRepository
 import will.denne.launches.data.dataclass.HighPoint
 import javax.inject.Inject
 
-data class HighPointViewState(
-    val state: String
-)
-
 @HiltViewModel
 class HighPointViewModel @Inject constructor(
     private val dataRepository: DataRepository,
@@ -50,8 +46,8 @@ class HighPointViewModel @Inject constructor(
 const val stateArg = "arg"
 
 sealed class HighPointScreenState {
-    object Loading : HighPointScreenState()
-    object Success: HighPointScreenState()
+    data object Loading : HighPointScreenState()
+    data object Success: HighPointScreenState()
 
     class Error(val error: java.lang.Exception) : HighPointScreenState()
 }

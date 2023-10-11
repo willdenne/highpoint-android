@@ -1,17 +1,5 @@
 package will.denne.launches.data
 
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
-
-
-fun convertTime(dateUnix: Long?): String {
-    dateUnix ?: return ""
-    val date = Date(dateUnix * 1000)
-    val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss z", Locale.US)
-    return sdf.format(date)
-}
-
 fun getStateCode(name: String): String {
     return when (name) {
         "Alabama" -> "al"

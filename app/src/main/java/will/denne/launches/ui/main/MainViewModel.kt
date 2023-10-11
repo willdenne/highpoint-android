@@ -3,7 +3,6 @@ package will.denne.launches.ui.main
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -95,7 +94,7 @@ sealed class SortState {
 }
 
 sealed class PeaksScreenState {
-    object Loading : PeaksScreenState()
-    object Success: PeaksScreenState()
+    data object Loading : PeaksScreenState()
+    data object Success: PeaksScreenState()
     class Error(val error: Exception) : PeaksScreenState()
 }

@@ -17,14 +17,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
-import coil.annotation.ExperimentalCoilApi
 import will.denne.launches.R
 import will.denne.launches.data.dataclass.HighPoint
 import will.denne.launches.ui.main.MainViewModel
 import will.denne.launches.ui.main.PeaksScreenState
 
-@OptIn(ExperimentalMaterialApi::class)
-@ExperimentalCoilApi
 @Composable
 fun StatePeak(
     viewModel: MainViewModel,
@@ -84,7 +81,6 @@ fun StatePeak(
     }
 }
 
-@ExperimentalCoilApi
 @Composable
 fun PeakRow(highPoint: HighPoint, navController: NavController) {
     Card(

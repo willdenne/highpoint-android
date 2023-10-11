@@ -2,8 +2,6 @@ package will.denne.launches.ui.main.composable
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import will.denne.launches.ui.main.HighPointViewModel
 import androidx.compose.material.*
@@ -12,25 +10,20 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import coil.annotation.ExperimentalCoilApi
 import coil.compose.AsyncImage
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import will.denne.launches.data.getStateCode
 import will.denne.launches.ui.main.HighPointScreenState
 
-@OptIn(ExperimentalMaterialApi::class, ExperimentalPagerApi::class)
-@ExperimentalCoilApi
+@OptIn(ExperimentalPagerApi::class)
 @Composable
 fun SingleHighPoint(
-    viewModel: HighPointViewModel,
-    navController: NavController
+    viewModel: HighPointViewModel
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val highPoint by viewModel.highpoint.collectAsState()
