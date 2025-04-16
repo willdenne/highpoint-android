@@ -35,6 +35,7 @@ fun StatePeak(
         is PeaksScreenState.Loading -> {
             Loading()
         }
+
         is PeaksScreenState.Success -> {
             ConstraintLayout(
                 modifier = Modifier
@@ -42,15 +43,16 @@ fun StatePeak(
                     .fillMaxWidth()
             ) {
                 val (sort, content) = createRefs()
-                Row(modifier = Modifier
-                    .clickable(onClick = {
-                        viewModel.sortClicked()
-                    })
-                    .constrainAs(sort) {
-                        top.linkTo(parent.top)
-                    }
-                    .padding(16.dp)
-                    .fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                Row(
+                    modifier = Modifier
+                        .clickable(onClick = {
+                            viewModel.sortClicked()
+                        })
+                        .constrainAs(sort) {
+                            top.linkTo(parent.top)
+                        }
+                        .padding(16.dp)
+                        .fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                     Text(
                         text = "Sorting: ${sortState.display}",
                         style = MaterialTheme.typography.h5,
@@ -64,10 +66,12 @@ fun StatePeak(
                     state = listState,
                     contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
                     verticalArrangement = Arrangement.spacedBy(16.dp),
-                    modifier = Modifier.constrainAs(content) {
-                        top.linkTo(sort.bottom)
-                        bottom.linkTo(parent.bottom)
-                    }
+                    modifier = Modifier
+                        .padding(top = 48.dp, bottom = 76.dp)
+                        .constrainAs(content) {
+                            top.linkTo(sort.bottom)
+                            bottom.linkTo(parent.bottom)
+                        }
                 ) {
                     items(highPoints) { highPoint ->
                         PeakRow(highPoint, navController)
@@ -75,6 +79,7 @@ fun StatePeak(
                 }
             }
         }
+
         is PeaksScreenState.Error -> {
             Error(error = (uiState as PeaksScreenState.Error).error.message)
         }

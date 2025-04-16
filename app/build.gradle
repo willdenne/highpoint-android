@@ -4,16 +4,17 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
+    id 'org.jetbrains.kotlin.plugin.compose'
 }
 
 android {
-    compileSdk 34
+    compileSdk 35
     namespace "will.denne.launches"
 
     defaultConfig {
         applicationId "will.denne.highpoints"
-        minSdk 26
-        targetSdk 34
+        minSdk 28
+        targetSdk 35
         versionCode 1
         versionName "1.0"
 
